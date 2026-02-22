@@ -18,6 +18,11 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         canMove = true;
+
+        transform.localScale = new Vector3(
+            1f / transform.parent.transform.localScale.x,
+            1f / transform.parent.transform.localScale.y,
+            1f / transform.parent.transform.localScale.z);
     }
 
     private void Update()
