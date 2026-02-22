@@ -6,6 +6,7 @@ public enum Status
     GamePaused,
     GameRunning
 }
+
 public class MenuManager : MonoBehaviour
 {
     [Header("Status")]
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MainLevel"); //Change the scene to the main level
+        status = Status.GameRunning; //Set the status to running
     }
 
     //exit the Game
