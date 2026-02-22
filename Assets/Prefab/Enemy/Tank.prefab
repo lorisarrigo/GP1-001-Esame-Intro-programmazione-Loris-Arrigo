@@ -142,7 +142,9 @@ Transform:
   m_LocalPosition: {x: 0.1015501, y: 1.11207, z: 1.97579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7041917919130934114}
+  - {fileID: 256793797140477183}
   m_Father: {fileID: 7913298072019560498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1773802728219743117
@@ -284,13 +286,13 @@ Transform:
   m_GameObject: {fileID: 2795253761281019459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1015501, y: 1.11207, z: 1.97579}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4428660165681761885}
   - {fileID: 7976540776445029889}
-  m_Father: {fileID: 7913298072019560498}
+  m_Father: {fileID: 813161783619192822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3101753882594741268
 GameObject:
@@ -305,7 +307,7 @@ GameObject:
   - component: {fileID: 4548523403327590438}
   - component: {fileID: 805605311560824684}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,14 +430,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301502683138092148}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.196, y: 1.11207, z: 1.97579}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.29755023, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 544496891439205899}
   - {fileID: 7744302429673414066}
-  m_Father: {fileID: 7913298072019560498}
+  m_Father: {fileID: 813161783619192822}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &3445710480461216399
 GameObject:
@@ -446,7 +448,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7913298072019560498}
-  m_Layer: 0
+  - component: {fileID: 6966780263819419373}
+  - component: {fileID: 309273829101559670}
+  - component: {fileID: 3261385685019135723}
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,16 +467,79 @@ Transform:
   m_GameObject: {fileID: 3445710480461216399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.338, y: 0, z: 1.911}
+  m_LocalPosition: {x: 0, y: 0, z: 0.126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1223783236063459723}
   - {fileID: 813161783619192822}
-  - {fileID: 7041917919130934114}
-  - {fileID: 256793797140477183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!54 &6966780263819419373
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445710480461216399}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 124
+  m_CollisionDetection: 0
+--- !u!65 &309273829101559670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445710480461216399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34133178, y: 0.34006113, z: 0.3413712}
+  m_Center: {x: -0.04641381, y: 0.899701, z: 1.9681247}
+--- !u!114 &3261385685019135723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445710480461216399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4509cc53eeaf7c4da6f2d302a5f6f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  MaxHealth: 20
+  CurrentHealth: 0
+  Speed: 1
+  DamagePerHit: 5
+  Money: 5
 --- !u!1 &3799812628362821083
 GameObject:
   m_ObjectHideFlags: 0
