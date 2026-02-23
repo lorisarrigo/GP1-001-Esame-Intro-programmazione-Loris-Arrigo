@@ -22,7 +22,7 @@ public class Bullets : MonoBehaviour
     {
         if (canMove)
         {
-            rb.linearVelocity = new Vector3(-1, transform.position.y, transform.position.z) * tur.BSpeed; //Move the enemy to the left
+            rb.linearVelocity = new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed; //Move the enemy to the left
         }
         else
         {

@@ -12,10 +12,20 @@ public class MenuManager : MonoBehaviour
     [Header("Status")]
     public Status status;
 
+    public static MenuManager Instance;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
-        status = Status.GamePaused; //at the start of the game set the status to paused
+        //status = Status.GamePaused; //at the start of the game set the status to paused
     }
 
     private void Update()
@@ -34,6 +44,11 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainLevel"); //Change the scene to the main level
         status = Status.GameRunning; //Set the status to running
+    }
+
+    public void LostGame()
+    {
+        status = Status.GamePaused; //Set the status to paused
     }
 
     //exit the Game
