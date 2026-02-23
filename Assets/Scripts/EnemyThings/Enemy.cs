@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Health settings")]
     [SerializeField] float MaxHealth;
-    [SerializeField] float CurrentHealth;
+    public float CurrentHealth;
 
     public static event System.Action<int> OnEnemyKilled;
 
@@ -65,15 +65,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Despawn()
     {
-        if (CompareTag("Bullet"))
-        { 
-            StartCoroutine(TimeBeforeDespawn());
-        }
+        StartCoroutine(TimeBeforeDespawn());
     }
     
     IEnumerator TimeBeforeDespawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
         OnEnemyKilled?.Invoke(Money);
         Destroy(gameObject);
     }

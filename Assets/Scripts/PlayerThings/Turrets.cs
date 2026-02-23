@@ -5,7 +5,8 @@ public class Turrets : MonoBehaviour
     public GameObject Bullets;
     public float BulletRate;
     public float BSpeed;
+    public float Area;
 
-    [SerializeField] int DamagePerHit;
+    public int DamagePerHit;
     [SerializeField] int Prize;
 }

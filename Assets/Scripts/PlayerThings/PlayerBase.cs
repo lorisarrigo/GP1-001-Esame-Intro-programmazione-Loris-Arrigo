@@ -28,13 +28,8 @@ public class PlayerBase : MonoBehaviour, IDamageable
     public void Despawn()
     {
         Debug.Log("son stato richiamato");
-        Kill();
-    }
-    public void Kill()
-    {
         StartCoroutine(Death());
     }
-
     IEnumerator Death()
     {
         yield return new WaitForSeconds(0.2f);
