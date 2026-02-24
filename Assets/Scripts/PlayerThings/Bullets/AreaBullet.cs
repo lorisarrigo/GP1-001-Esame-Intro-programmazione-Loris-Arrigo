@@ -26,11 +26,11 @@ public class AreaBullet : MonoBehaviour
         Colobj = other.gameObject;
         if (other.CompareTag("Enemy"))
         {
-            NormalDam();
+            Hit();
         }
     }
 
-    public void NormalDam()
+    public void Hit()
     {
         if (Colobj == null) return;
         Colobj.TryGetComponent(out IDamageable damageable);

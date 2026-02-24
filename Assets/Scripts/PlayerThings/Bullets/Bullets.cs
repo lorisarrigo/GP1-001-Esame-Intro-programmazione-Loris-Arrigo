@@ -27,6 +27,10 @@ public class Bullets : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             NormalDam();
+        }
+
+        if(other.CompareTag("Despawner") || other.CompareTag("Enemy"))
+        {
             Destroy(gameObject);
         }
     }
