@@ -2,10 +2,21 @@ using UnityEngine;
 
 public class AreaBullet : MonoBehaviour
 {
-    Rigidbody rb;
     GameObject Colobj;
+    Rigidbody rb;
+    
     Turrets tur;
 
+    //[SerializeField] Collider Area;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Colobj = other.gameObject;
+        if (other.CompareTag("Enemy") )
+        {
+            AreaDam();
+        }
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,16 +32,7 @@ public class AreaBullet : MonoBehaviour
     {
         rb.linearVelocity = new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed; //Move the enemy to the left
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Colobj = other.gameObject;
-        if (other.CompareTag("Enemy"))
-        {
-            Hit();
-        }
-    }
-
-    public void Hit()
+    public void AreaDam()
     {
         if (Colobj == null) return;
         Colobj.TryGetComponent(out IDamageable damageable);

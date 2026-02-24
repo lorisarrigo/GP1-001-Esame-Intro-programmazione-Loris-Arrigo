@@ -24,13 +24,9 @@ public class Bullets : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Colobj = other.gameObject;
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Despawner"))
         {
             NormalDam();
-        }
-
-        if(other.CompareTag("Despawner") || other.CompareTag("Enemy"))
-        {
             Destroy(gameObject);
         }
     }
