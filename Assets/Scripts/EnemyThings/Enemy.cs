@@ -23,14 +23,14 @@ public class Enemy : MonoBehaviour, IDamageable
         CurrentHealth = MaxHealth;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }
 
     private void Move()
     {
-        rb.linearVelocity = new Vector3(-1, transform.position.y, transform.position.z) * Speed; //Move the enemy to the left
+        rb.linearVelocity = (new Vector3(-1, transform.position.y, transform.position.z) * Speed) * Time.fixedDeltaTime; //Move the enemy to the left
     }
     private void OnTriggerEnter(Collider other)
     {

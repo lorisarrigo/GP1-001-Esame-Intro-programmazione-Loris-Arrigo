@@ -12,14 +12,14 @@ public class Bullets : MonoBehaviour
         tur = GetComponentInParent<Turrets>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }
 
     private void Move()
     {
-        rb.linearVelocity = new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed; //Move the enemy to the left
+        rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed) * Time.fixedDeltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {

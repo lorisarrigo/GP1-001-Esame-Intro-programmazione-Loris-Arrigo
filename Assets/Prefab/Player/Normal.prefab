@@ -50,7 +50,7 @@ MonoBehaviour:
   Bspawner: {fileID: 612740672984636187}
   Bullets: {fileID: 8570799551199790339, guid: b258ef4507f44d540ab850f2a566a759, type: 3}
   BulletRate: 2.5
-  BSpeed: 1
+  BSpeed: 100
   Area: 0
   DamagePerHit: 3
   Prize: 15
@@ -287,13 +287,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7097878025196525025}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: -4.8, z: -0}
   m_LocalScale: {x: 0.66352, y: 0.69852775, z: 3.7455244}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2314251544518967052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!1 &8454768153700184732
 GameObject:
   m_ObjectHideFlags: 0

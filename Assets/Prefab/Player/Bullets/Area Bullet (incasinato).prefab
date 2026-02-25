@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 8573117050576130471}
   - component: {fileID: 591340002716146748}
   - component: {fileID: 7985605634794901260}
-  - component: {fileID: 4563419621088882682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,33 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletDespawn
   Bullet: {fileID: 8570799551199790339}
---- !u!54 &4563419621088882682
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559504827623860626}
-  serializedVersion: 5
-  m_Mass: 0.0000001
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &7298947777155345559
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +140,8 @@ GameObject:
   - component: {fileID: 5982838962481366698}
   - component: {fileID: 6674991488827848634}
   - component: {fileID: 4062567593825164041}
-  m_Layer: 0
+  - component: {fileID: 5457438153483179185}
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +243,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5457438153483179185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298947777155345559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a2a81a36015ab4f827b0d11060b779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AreaBullet
 --- !u!1 &8570799551199790339
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,10 +265,9 @@ GameObject:
   m_Component:
   - component: {fileID: 244494224462423970}
   - component: {fileID: 8325657865631421177}
-  - component: {fileID: 2443267035739141775}
-  - component: {fileID: 4871763093611076409}
+  - component: {fileID: 923641084593966554}
   m_Layer: 0
-  m_Name: Area Bullet
+  m_Name: Area Bullet (incasinato)
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +317,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
---- !u!114 &2443267035739141775
+--- !u!114 &923641084593966554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,29 +326,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8570799551199790339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da77d9bdda307714cb2117d1b5c7ac6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d76c9ef67d35104ba2a4b5eecb6841b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AreaBullet
---- !u!136 &4871763093611076409
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8570799551199790339}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Areamoving

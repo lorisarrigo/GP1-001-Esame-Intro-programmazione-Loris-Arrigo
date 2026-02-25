@@ -650,6 +650,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 941904890249552259, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
+      propertyPath: BSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 941904890249552259, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
+      propertyPath: Bullets
+      value: 
+      objectReference: {fileID: 8570799551199790339, guid: 1e25bf3c61da7b74a9f9f34c62d50aef, type: 3}
     - target: {fileID: 1842351226038930215, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
       propertyPath: m_IsActive
       value: 1

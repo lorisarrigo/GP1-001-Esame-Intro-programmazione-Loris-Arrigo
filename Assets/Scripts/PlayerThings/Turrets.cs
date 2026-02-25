@@ -17,7 +17,7 @@ public class Turrets : MonoBehaviour
         Timer += Time.deltaTime;
         if(Timer >= BulletRate)
         {
-            Instantiate(Bullets, Bspawner.position, Bspawner.rotation, Bspawner.transform);
+            Instantiate(Bullets, Bspawner.position, Quaternion.Euler(90, 0, 0), Bspawner.transform);
             Timer = 0;
         }
     }
