@@ -4,8 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Health settings")]
-    [SerializeField] float MaxHealth;
-    public float CurrentHealth;
+    [SerializeField] int MaxHealth;
+    public int CurrentHealth;
 
     public static event System.Action<int> OnEnemyKilled;
 

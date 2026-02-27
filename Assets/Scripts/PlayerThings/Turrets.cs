@@ -4,13 +4,17 @@ public class Turrets : MonoBehaviour
 {
     [SerializeField] Transform Bspawner;
     public GameObject Bullets;
+
     public float BulletRate;
     private float Timer;
     public float BSpeed;
-    public float Area;
-
     public int DamagePerHit;
     [SerializeField] int Prize;
+
+    [Header("Area Settings")]
+    public float Multiplier;
+    public float Area;
+
 
     private void Update()
     {

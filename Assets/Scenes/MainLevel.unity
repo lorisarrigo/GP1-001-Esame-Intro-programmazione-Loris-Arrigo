@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 941904890249552259, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
       propertyPath: Bullets
       value: 
-      objectReference: {fileID: 8570799551199790339, guid: 1e25bf3c61da7b74a9f9f34c62d50aef, type: 3}
+      objectReference: {fileID: 8816920290049434240, guid: 91e8c20c364c3c54e882de7eeb81b8f5, type: 3}
     - target: {fileID: 1842351226038930215, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 2125502620}
   - component: {fileID: 2125502621}
   m_Layer: 0
-  m_Name: GamaManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
