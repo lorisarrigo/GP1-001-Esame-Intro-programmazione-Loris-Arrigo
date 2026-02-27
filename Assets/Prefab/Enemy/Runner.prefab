@@ -558,7 +558,7 @@ MonoBehaviour:
   CurrentHealth: 0
   Speed: 50
   DamagePerHit: 1
-  Money: 1
+  Money: 5
 --- !u!1 &9027354029904436538
 GameObject:
   m_ObjectHideFlags: 0

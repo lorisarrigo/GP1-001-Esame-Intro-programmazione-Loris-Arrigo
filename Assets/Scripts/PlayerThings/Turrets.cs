@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
+    [Header("Turret value")]
+    [SerializeField] int Prize;
+    
+    [Header("Bullet setting & Stats")]
     [SerializeField] Transform Bspawner;
     public GameObject Bullets;
 
@@ -9,7 +13,7 @@ public class Turrets : MonoBehaviour
     private float Timer;
     public float BSpeed;
     public int DamagePerHit;
-    [SerializeField] int Prize;
+
 
     [Header("Area Settings")]
     public float Multiplier;

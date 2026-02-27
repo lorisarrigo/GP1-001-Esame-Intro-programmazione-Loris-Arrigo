@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    [Header("Health settings")]
+    [Header("Enemy Health")]
     [SerializeField] int MaxHealth;
     public int CurrentHealth;
 
-    public static event System.Action<int> OnEnemyKilled;
-
-    [Header("other settings")]
+    [Header("Other Enemy stats")]
     [SerializeField] float Speed;
     [SerializeField] int DamagePerHit;
+
+    [Header("Money stats")]
     [SerializeField] int Money;
+    public static event System.Action<int> OnEnemyKilled;
 
     Rigidbody rb;
     GameObject Colobj;

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +10,31 @@ public enum Status
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
     [Header("Status")]
     public Status status;
 
-    public static MenuManager Instance;
+    [Header("Money")]
+    public float StartingMoney;
+    public float money;
+    public static event Action OnMoneyAdded;
+
+    private void OnEnable()
+    {
+        Enemy.OnEnemyKilled += AddMoney;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEnemyKilled -= AddMoney;
+    }
+
+    private void AddMoney(int Money)
+    {
+        money += Money;
+        OnMoneyAdded?.Invoke();
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -25,6 +47,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        money = StartingMoney;
         //status = Status.GamePaused; //at the start of the game set the status to paused
     }
 

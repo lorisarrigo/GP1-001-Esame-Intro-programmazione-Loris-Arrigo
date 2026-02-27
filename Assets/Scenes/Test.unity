@@ -167,10 +167,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5430034002512954662, guid: 888cabf4d07c4ec45babb6bb90a34867, type: 3}
-      propertyPath: Speed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7527388485814227322, guid: 888cabf4d07c4ec45babb6bb90a34867, type: 3}
       propertyPath: m_Name
       value: Tank
@@ -719,17 +715,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5430034002512954662, guid: fa7b1a3c8737d9648b6c58b9daa679c4, type: 3}
-      propertyPath: Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430034002512954662, guid: fa7b1a3c8737d9648b6c58b9daa679c4, type: 3}
-      propertyPath: MaxHealth
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7527388485814227322, guid: fa7b1a3c8737d9648b6c58b9daa679c4, type: 3}
       propertyPath: m_Name
-      value: Runner (1)
+      value: Runner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
