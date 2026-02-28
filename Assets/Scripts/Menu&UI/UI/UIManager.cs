@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [Header("In Game UI")]
     [SerializeField] GameObject inGameUI;
     [SerializeField] TMP_Text moneyCounter;
+    [SerializeField] Image PlayerHpbar;
 
     private void OnEnable()
     {
@@ -22,6 +24,9 @@ public class UIManager : MonoBehaviour
             inGameUI.SetActive(true);
         else
             inGameUI.SetActive(false);
+
+        PlayerHpbar.fillAmount = (float)PlayerBase.Instance.CurrentHealth / (float)PlayerBase.Instance.MaxHealth;
+
     }
 
     public void UpdateCounter()

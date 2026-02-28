@@ -557,7 +557,7 @@ MonoBehaviour:
   MaxHealth: 20
   CurrentHealth: 0
   Speed: 20
-  DamagePerHit: 5
+  DamagePerHit: 15
   Money: 10
 --- !u!1 &9027354029904436538
 GameObject:

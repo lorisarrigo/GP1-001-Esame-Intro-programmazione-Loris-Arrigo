@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerBase : MonoBehaviour, IDamageable
 {
     [Header("Player Health")]
-    [SerializeField] int MaxHealth;
+    public int MaxHealth;
     public int CurrentHealth;
 
     public static PlayerBase Instance;
