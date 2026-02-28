@@ -14,13 +14,17 @@ public class Bullets : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        Move(); 
     }
 
     private void Move()
     {
-        rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed) * Time.fixedDeltaTime;
+        if (tur.transform.rotation.y == 0)
+        { rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, -1) * tur.BSpeed) * Time.fixedDeltaTime; }
+        else
+        { rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed) * Time.fixedDeltaTime; }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         Colobj = other.gameObject;

@@ -26,7 +26,10 @@ public class OverlapDam : MonoBehaviour
     }
     private void Move()
     {
-        rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed) * Time.fixedDeltaTime; //Move the enemy to the left
+        if (tur.transform.rotation.y == 0)
+        { rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, -1) * tur.BSpeed) * Time.fixedDeltaTime; }
+        else
+        { rb.linearVelocity = (new Vector3(transform.position.x, transform.position.y, 1) * tur.BSpeed) * Time.fixedDeltaTime; }
     }
     public void AreaDam()
     {
