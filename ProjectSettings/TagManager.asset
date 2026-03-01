@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Enemy
   - Despawner
+  - Normal
+  - Area
+  - MG
   layers:
   - Default
   - TransparentFX

@@ -15,9 +15,14 @@ public class MenuManager : MonoBehaviour
     public Status status;
 
     [Header("Money")]
-    public float StartingMoney;
-    public float money;
+    public int money;
     public static event Action OnMoneyAdded;
+
+
+    
+    //public static event Action OnPowerUp;
+
+    Turrets Tur;
 
     private void OnEnable()
     {
@@ -27,12 +32,6 @@ public class MenuManager : MonoBehaviour
     private void OnDisable()
     {
         Enemy.OnEnemyKilled -= AddMoney;
-    }
-
-    private void AddMoney(int Money)
-    {
-        money += Money;
-        OnMoneyAdded?.Invoke();
     }
 
     private void Awake()
@@ -46,10 +45,11 @@ public class MenuManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        money = StartingMoney;
+    {       
+        Tur = GetComponent<Turrets>();
         //status = Status.GamePaused; //at the start of the game set the status to paused
     }
+
 
     private void Update()
     {
@@ -62,12 +62,24 @@ public class MenuManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
     }
     public void StartGame()
     {
         SceneManager.LoadScene("MainLevel"); //Change the scene to the main level
         status = Status.GameRunning; //Set the status to running
     }
+    public void AddMoney(int Money)
+    {
+        money += Money;
+        OnMoneyAdded?.Invoke();
+    }
+
+    //public void DoublePrize(int PUPrize)
+    //{
+    //    Tur.PU_Prize *= 2;
+    //    OnPowerUp?.Invoke();
+    //}
 
     public void LostGame()
     {

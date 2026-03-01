@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 734003512}
   - component: {fileID: 734003511}
   m_Layer: 5
-  m_Name: Prize
+  m_Name: NormalPrize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Prize: 15'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 1479175464}
   - component: {fileID: 1479175463}
   m_Layer: 5
-  m_Name: Prize
+  m_Name: MGPrize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,7 +1741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Prize: 20'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1833,7 +1833,7 @@ GameObject:
   - component: {fileID: 1568111203}
   - component: {fileID: 1568111202}
   m_Layer: 5
-  m_Name: Prize
+  m_Name: AreaPrize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1878,7 +1878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Prize: 30'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2277,8 +2277,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   inGameUI: {fileID: 124779566}
-  moneyCounter: {fileID: 1570853716}
   PlayerHpbar: {fileID: 795725685}
+  moneyCounter: {fileID: 1570853716}
+  StartingMoney: 50
+  NormalTur: {fileID: 734003511}
+  NormalPrize: 15
+  MachineGunTur: {fileID: 1479175463}
+  MGPrize: 20
+  AreaTur: {fileID: 1568111202}
+  AreaPrize: 30
 --- !u!1 &1968185324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,7 +2509,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
   status: 1
-  StartingMoney: 50
   money: 0
 --- !u!1001 &1229042690790993748
 PrefabInstance:

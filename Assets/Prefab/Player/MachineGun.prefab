@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 9101594713935621396}
   m_Layer: 0
   m_Name: MachineGun
-  m_TagString: Untagged
+  m_TagString: MG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311861649612875901}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.86, y: 1.86, z: 1.86}
   m_ConstrainProportionsScale: 0
@@ -252,7 +252,7 @@ Transform:
   - {fileID: 7355064197088496074}
   - {fileID: 2243011703848847822}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9101594713935621396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,12 +265,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fe521c18b38a344b5be66ddad64d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Turrets
-  Prize: 20
   Bspawner: {fileID: 1927939598972205339}
   Bullets: {fileID: 8570799551199790339, guid: 8f0db12f4ff0fb0448e748dec2c9cc63, type: 3}
   BulletRate: 1
   BSpeed: 100
   DamagePerHit: 6
+  powerUpCounter: {fileID: 8606286332968186233}
+  PowerUpCanva: {fileID: 1812306448441529591}
   Multiplier: 0
   Area: 0
 --- !u!1 &1812306448441529591
@@ -299,14 +300,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812306448441529591}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.654}
-  m_LocalScale: {x: -0.000345, y: -0.00037, z: -0.000345}
+  m_LocalScale: {x: 0.000345, y: 0.00037, z: 0.000345}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8132734037801941035}
   m_Father: {fileID: 4005883618950989785}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0.5}
@@ -960,7 +961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

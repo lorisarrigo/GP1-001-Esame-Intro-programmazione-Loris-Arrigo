@@ -170,8 +170,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950930370054733194}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.25}
-  m_LocalScale: {x: -0.000345, y: -0.00037, z: -0.000345}
+  m_LocalPosition: {x: 0, y: 0, z: 0.25000015}
+  m_LocalScale: {x: 0.000345, y: 0.00037, z: 0.000345}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6079107941171392663}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 941904890249552259}
   m_Layer: 0
   m_Name: Area
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2645947884282150646}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.86, y: 1.86, z: 1.86}
   m_ConstrainProportionsScale: 0
@@ -377,7 +377,7 @@ Transform:
   - {fileID: 2570726112694890502}
   - {fileID: 4228182943240320178}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &941904890249552259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,12 +390,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fe521c18b38a344b5be66ddad64d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Turrets
-  Prize: 30
   Bspawner: {fileID: 4967022299289140447}
   Bullets: {fileID: 8816920290049434240, guid: 91e8c20c364c3c54e882de7eeb81b8f5, type: 3}
   BulletRate: 5
   BSpeed: 100
   DamagePerHit: 9
+  powerUpCounter: {fileID: 3307730237861453539}
+  PowerUpCanva: {fileID: 1950930370054733194}
   Multiplier: 1.5
   Area: 0
 --- !u!1 &3038733792209047904
@@ -463,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

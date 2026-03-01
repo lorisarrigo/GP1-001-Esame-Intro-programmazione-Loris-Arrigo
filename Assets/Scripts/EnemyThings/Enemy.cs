@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,8 +13,8 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] int DamagePerHit;
 
     [Header("Money stats")]
-    [SerializeField] int Money;
-    public static event System.Action<int> OnEnemyKilled;
+    [SerializeField] int EnemMoney;
+    public static event Action <int> OnEnemyKilled;
 
     Rigidbody rb;
     GameObject Colobj;
@@ -72,7 +73,7 @@ public class Enemy : MonoBehaviour, IDamageable
     IEnumerator TimeBeforeDespawn()
     {
         yield return new WaitForSeconds(0.2f);
-        OnEnemyKilled?.Invoke(Money);
+        OnEnemyKilled?.Invoke(EnemMoney);
         Destroy(gameObject);
     }
 }
