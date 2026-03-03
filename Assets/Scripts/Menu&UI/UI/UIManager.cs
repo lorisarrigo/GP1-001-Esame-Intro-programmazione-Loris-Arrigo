@@ -4,36 +4,35 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
-
-    [Header("UI")]
-    [SerializeField] GameObject inGameUI;
 
     [Header("Health")]
-    [SerializeField] Image PlayerHpbar;
+    [SerializeField] Image playerHpbar; //Gets the HelthBar
 
     [Header("Money")]
-    [SerializeField] TMP_Text moneyCounter;
-    public int StartingMoney;
+    [SerializeField] TMP_Text moneyCounter; //Gets the Money counter
+    public int startingMoney;
+    public int money;
 
-    [Header("Tur prize")]
-    [SerializeField] TMP_Text NormalTur;
-    public int NormalPrize;
-    [SerializeField] TMP_Text MachineGunTur;
-    public int MGPrize;
-    [SerializeField] TMP_Text AreaTur;
-    public int AreaPrize;
+    //Gets the prizes of the Turrets Buttons
+    [Header("Tur prizes")]
+    [SerializeField] TMP_Text normalTur; 
+    public int normalPrize;
+    [SerializeField] TMP_Text machineGunTur;
+    public int machinegunPrize;
+    [SerializeField] TMP_Text areaTur;
+    public int areaPrize;
 
+    //when the Enemy gets Killed Add money to the Counter
     private void OnEnable()
     {
-
-        MenuManager.OnMoneyAdded += UpdateCounter;
+        Enemy.OnEnemyKilled += AddMoney;
     }
     private void OnDisable()
     {
-        MenuManager.OnMoneyAdded -= UpdateCounter;
+        Enemy.OnEnemyKilled -= AddMoney;
     }
 
+    public static UIManager Instance;
     private void Awake()
     {
         if (Instance != null)
@@ -43,28 +42,32 @@ public class UIManager : MonoBehaviour
         }
         Instance = this;
     }
+
+    //At the Start of the Game, Set the money to the Starting Money and Updates the Counter
     private void Start()
     {
-        MenuManager.Instance.money = StartingMoney;
+        money = startingMoney;
         UpdateCounter();
     }
 
+    //In every frame Updates the HealthBar of the Player by dividing the Current by the MaxHealth
     private void Update()
     {
-        if (MenuManager.Instance.status == Status.GameRunning)
-            inGameUI.SetActive(true);
-        else
-            inGameUI.SetActive(false);
-
-        PlayerHpbar.fillAmount = (float)PlayerBase.Instance.CurrentHealth / (float)PlayerBase.Instance.MaxHealth;
-
+        playerHpbar.fillAmount = PlayerBase.Instance.currentHealth / (float)PlayerBase.Instance.maxHealth; //the max is translated to float so that the bar can be defilled properly
     }
 
+    //Adds Money to the Counter when an Enemy gets killed, based on the Money given by the Enemy and Updates the Counter
+    public void AddMoney(int Money)
+    {
+        money += Money;
+        UpdateCounter();
+    }
+    //Update the Counters in the start, and the Money Every time an Enemy is killed
     public void UpdateCounter()
     {
-        moneyCounter.text = MenuManager.Instance.money.ToString();
-        NormalTur.text = NormalPrize.ToString();
-        MachineGunTur.text = MGPrize.ToString();
-        AreaTur.text = AreaPrize.ToString();
+        moneyCounter.text = "Money: " + money.ToString();
+        normalTur.text = normalPrize.ToString();
+        machineGunTur.text = machinegunPrize.ToString();
+        areaTur.text = areaPrize.ToString();
     }
 }

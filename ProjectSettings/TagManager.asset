@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
-  - Enemy
   - Despawner
   - Normal
   - Area
   - MG
+  - Enemy
   layers:
   - Default
   - TransparentFX

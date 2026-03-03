@@ -265,15 +265,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fe521c18b38a344b5be66ddad64d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Turrets
-  Bspawner: {fileID: 1927939598972205339}
-  Bullets: {fileID: 8570799551199790339, guid: 8f0db12f4ff0fb0448e748dec2c9cc63, type: 3}
-  BulletRate: 1
-  BSpeed: 100
-  DamagePerHit: 6
-  powerUpCounter: {fileID: 8606286332968186233}
+  bulletSpawner: {fileID: 1927939598972205339}
+  bullets: {fileID: 8570799551199790339, guid: 8f0db12f4ff0fb0448e748dec2c9cc63, type: 3}
+  bulletRate: 1
+  bSpeed: 100
+  damagePerHit: 6
   PowerUpCanva: {fileID: 1812306448441529591}
-  Multiplier: 0
-  Area: 0
+  powerUpCounter: {fileID: 8606286332968186233}
+  multiplier: 0
+  area: 0
 --- !u!1 &1812306448441529591
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,10 +784,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0.46666667}
-    m_HighlightedColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0.46666667}
+    m_PressedColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+    m_SelectedColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0.46666667}
+    m_DisabledColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 0.46666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -805,7 +805,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6173305595259596485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9101594713935621396}
+        m_TargetAssemblyTypeName: Turrets, Assembly-CSharp
+        m_MethodName: Multiply_PU
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6278042939466876755
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +1006,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1047,7 +1059,7 @@ GameObject:
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

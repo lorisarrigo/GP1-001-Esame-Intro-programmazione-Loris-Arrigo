@@ -1,39 +1,33 @@
-using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//defines the Status in wich the game run
 public enum Status
 {
-    GamePaused,
-    GameRunning
+    gamePaused,
+    gameRunning
 }
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager Instance;
     [Header("Status")]
-    public Status status;
+    public Status status; //Gets the status in the class
 
-    [Header("Money")]
-    public int money;
-    public static event Action OnMoneyAdded;
+    [Header("UI")]
+    [SerializeField] GameObject inGameUI; //Gets the UI used when the game is running
+
+    //Gets the Menus and the kill Counter
+    [Header("Menus")]
+    //public GameObject PauseMenu;
+    public GameObject gameOverScreen;
+    public int enemyKillCounter;
+    [SerializeField] TMP_Text killCounter;
 
 
-    
     //public static event Action OnPowerUp;
 
-    Turrets Tur;
-
-    private void OnEnable()
-    {
-        Enemy.OnEnemyKilled += AddMoney;
-    }
-
-    private void OnDisable()
-    {
-        Enemy.OnEnemyKilled -= AddMoney;
-    }
-
+    public static MenuManager Instance;
     private void Awake()
     {
         if (Instance != null)
@@ -46,47 +40,49 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {       
-        Tur = GetComponent<Turrets>();
         //status = Status.GamePaused; //at the start of the game set the status to paused
     }
 
 
+        //Setting the TimeScales for the game for when is paused and when is running
+        //olso deactivate/activate the UI in the corrispective status
     private void Update()
     {
-        //Setting the TimeScales for the game for when is paused and when is running
-        if (status == Status.GamePaused)
+        if (status == Status.gamePaused)
         {
             Time.timeScale = 0;
+            inGameUI.SetActive(false);
         }
         else
         {
             Time.timeScale = 1;
+            inGameUI.SetActive(true);
         }
 
     }
+    //When the Play Botton is Clicked, Change the scene to the main level and set the State to Running
     public void StartGame()
     {
-        SceneManager.LoadScene("MainLevel"); //Change the scene to the main level
-        status = Status.GameRunning; //Set the status to running
-    }
-    public void AddMoney(int Money)
-    {
-        money += Money;
-        OnMoneyAdded?.Invoke();
+        SceneManager.LoadScene("MainLevel"); 
+        status = Status.gameRunning;
     }
 
-    //public void DoublePrize(int PUPrize)
-    //{
-    //    Tur.PU_Prize *= 2;
-    //    OnPowerUp?.Invoke();
-    //}
-
+    //When the Player dies, Set the Status to pause, Update the Kill Counter, and Activate the GameOverScreen
     public void LostGame()
     {
-        status = Status.GamePaused; //Set the status to paused
+        status = Status.gamePaused; //Set the status to paused
+        killCounter.text = "Enemies Killed: " + enemyKillCounter.ToString();
+        gameOverScreen.SetActive(true);
     }
 
-    //exit the Game
+    //When the Main menu Botton is Clicked sets the Status to paused and change the Sche to the main menu Scene
+    public void BackToMainMenu()
+    {
+        status = Status.gamePaused;
+        SceneManager.LoadScene("Menu");
+    }
+
+    //When the Quit Botton is Cliked, exit the Game (only in build)
     public void ExitGame()
     {
         Application.Quit();

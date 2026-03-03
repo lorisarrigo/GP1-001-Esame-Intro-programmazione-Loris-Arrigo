@@ -1,28 +1,35 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    //Gets the stats and the components needed
     [Header("Enemy Health")]
-    [SerializeField] int MaxHealth;
-    public int CurrentHealth;
+    [SerializeField] int maxHealth;
+    public float currentHealth;
 
     [Header("Other Enemy stats")]
-    [SerializeField] float Speed;
-    [SerializeField] int DamagePerHit;
+    [SerializeField] float speed;
+    public float damagePerHit;
 
     [Header("Money stats")]
-    [SerializeField] int EnemMoney;
-    public static event Action <int> OnEnemyKilled;
+    [SerializeField] int enemyMoney;
+    public static event Action <int> OnEnemyKilled; //event Action used to Add Money when the Enemy is Killed
 
     Rigidbody rb;
-    GameObject Colobj;
-
+    EnemySpawner enemSpawn;
+    GameObject colobj;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        CurrentHealth = MaxHealth;
+        enemSpawn = GetComponent<EnemySpawner>();
+        currentHealth = maxHealth;
+    }
+
+    //Whene spawned add the total Damage to the base Damage
+    private void OnEnable()
+    {
+        damagePerHit += enemSpawn.totalDam;
     }
 
     private void FixedUpdate()
@@ -30,13 +37,16 @@ public class Enemy : MonoBehaviour, IDamageable
         Move();
     }
 
+    //Move the enemy to the left
     private void Move()
     {
-        rb.linearVelocity = (new Vector3(-1, transform.position.y, transform.position.z) * Speed) * Time.fixedDeltaTime; //Move the enemy to the left
+        rb.linearVelocity = (new Vector3(-1, transform.position.y, transform.position.z) * speed) * Time.fixedDeltaTime;
     }
+
+    //When it touch the Player Hitbox it'll damage it and then Destory itself
     private void OnTriggerEnter(Collider other)
     {
-        Colobj = other.gameObject;
+        colobj = other.gameObject;
         if (other.CompareTag("Player"))
         {
             Hit();
@@ -46,34 +56,36 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Hit()
     {
-        if (Colobj == null) return;
-        Colobj.TryGetComponent(out IDamageable damageable);
-        Colobj.TryGetComponent(out PlayerBase player);
+        //When the Enemy it the Player recalls the Interface and the "Player" script
+        if (colobj == null) return;
+        colobj.TryGetComponent(out IDamageable damageable);
+        colobj.TryGetComponent(out PlayerBase player);
 
+        //then it'll comunicate the amount of damage that the Player has to take
         if (damageable == null) return;
-        damageable.TakeDamage(DamagePerHit);
+        damageable.TakeDamage(damagePerHit);
 
+        //and check if the Player had finished it's life,
+        //if it's true it'll comunicate at the Interface to start the Despawn function for the Player
         if (player == null) return;
-        if (player.CurrentHealth <= 0)
+        if (player.currentHealth <= 0)
         {
-            Debug.Log("player is dead");
             damageable.Despawn();
         }
     }
-    public void TakeDamage(int damage)
+
+    //subtract the damage, that the Interface gets from the Bullet collided, to the Health of the Enemy
+    public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        currentHealth -= damage;
     }
 
+    //When the bullet finds out that the Enemy has no life,
+    //Invoke the Event to Add Money to the Counter, add 1 to the kill Counter and the Enemy will Destroy itself
     public void Despawn()
     {
-        StartCoroutine(TimeBeforeDespawn());
-    }
-    
-    IEnumerator TimeBeforeDespawn()
-    {
-        yield return new WaitForSeconds(0.2f);
-        OnEnemyKilled?.Invoke(EnemMoney);
+        OnEnemyKilled?.Invoke(enemyMoney);
+        MenuManager.Instance.enemyKillCounter++;
         Destroy(gameObject);
-    }
+    }    
 }

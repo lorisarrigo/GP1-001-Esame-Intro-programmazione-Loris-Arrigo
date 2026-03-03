@@ -4,8 +4,8 @@ using UnityEngine;
 public class PlayerBase : MonoBehaviour, IDamageable
 {
     [Header("Player Health")]
-    public int MaxHealth;
-    public int CurrentHealth;
+    public int maxHealth;
+    public float currentHealth;
 
     public static PlayerBase Instance;
     private void Awake()
@@ -18,22 +18,21 @@ public class PlayerBase : MonoBehaviour, IDamageable
         Instance = this;
     }
 
+    //set the health of the Enemy to the Max
     private void Start()
     {
-        CurrentHealth = MaxHealth;
+        currentHealth = maxHealth;
     }
-    public void TakeDamage(int damage)
+
+    //takes the damage comunicated by the Interface
+    public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        currentHealth -= damage;
     }
+
+    //Opens the GameOver Screen
     public void Despawn()
     {
-        Debug.Log("son stato richiamato");
-        StartCoroutine(Death());
-    }
-    IEnumerator Death()
-    {
-        yield return new WaitForSeconds(0.2f);
         MenuManager.Instance.LostGame();
     }
 }

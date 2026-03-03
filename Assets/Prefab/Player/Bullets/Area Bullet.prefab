@@ -337,7 +337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb34ff49f88d3c142bd6232089ebb113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OverlapDam
-  Bullet: {fileID: 8816920290049434240}
   box: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   layer:
     serializedVersion: 2
