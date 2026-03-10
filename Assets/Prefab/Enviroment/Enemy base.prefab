@@ -44,14 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bf83009f3ed5d4babbef524f3a03bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemies:
+  Enemies:
   - {fileID: 7527388485814227322, guid: fa7b1a3c8737d9648b6c58b9daa679c4, type: 3}
   - {fileID: 7527388485814227322, guid: 888cabf4d07c4ec45babb6bb90a34867, type: 3}
-  spawnRate: 7
   rateCounter: 0
+  spawnRate: 7
   minRate: 3
-  changeRateAt: 10
   changeRate: 0.5
+  changeRateAt: 10
   addDamage: 0.5
   totalDam: 0
 --- !u!1 &4664317259698822248

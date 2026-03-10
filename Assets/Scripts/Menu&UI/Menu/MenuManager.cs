@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,16 +12,6 @@ public class MenuManager : MonoBehaviour
 {
     [Header("Status")]
     public Status status; //Gets the status in the class
-
-    [Header("UI")]
-    [SerializeField] GameObject inGameUI; //Gets the UI used when the game is running
-
-    //Gets the Menus and the kill Counter
-    [Header("Menus")]
-    //public GameObject PauseMenu;
-    public GameObject gameOverScreen;
-    public int enemyKillCounter;
-    [SerializeField] TMP_Text killCounter;
 
 
     //public static event Action OnPowerUp;
@@ -50,15 +39,12 @@ public class MenuManager : MonoBehaviour
     {
         if (status == Status.gamePaused)
         {
-            Time.timeScale = 0;
-            inGameUI.SetActive(false);
+            Time.timeScale = 0;        
         }
         else
         {
             Time.timeScale = 1;
-            inGameUI.SetActive(true);
         }
-
     }
     //When the Play Botton is Clicked, Change the scene to the main level and set the State to Running
     public void StartGame()
@@ -67,18 +53,9 @@ public class MenuManager : MonoBehaviour
         status = Status.gameRunning;
     }
 
-    //When the Player dies, Set the Status to pause, Update the Kill Counter, and Activate the GameOverScreen
-    public void LostGame()
-    {
-        status = Status.gamePaused; //Set the status to paused
-        killCounter.text = "Enemies Killed: " + enemyKillCounter.ToString();
-        gameOverScreen.SetActive(true);
-    }
-
     //When the Main menu Botton is Clicked sets the Status to paused and change the Sche to the main menu Scene
     public void BackToMainMenu()
     {
-        status = Status.gamePaused;
         SceneManager.LoadScene("Menu");
     }
 

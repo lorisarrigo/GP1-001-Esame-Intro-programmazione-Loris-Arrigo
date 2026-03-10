@@ -556,7 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHealth: 10
   currentHealth: 0
-  speed: 50
+  speed: 35
   damagePerHit: 7
   enemyMoney: 5
 --- !u!1 &9027354029904436538

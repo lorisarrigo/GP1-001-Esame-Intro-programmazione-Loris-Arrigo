@@ -3,18 +3,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemies")]
-    [SerializeField] GameObject[] enemies; //List of the Enemies to Spawn
+    [SerializeField] GameObject[] Enemies; //List of the Enemies to Spawn
 
     [Header("Rate settings")]
-    [SerializeField] float spawnRate; //Spawn Rate
     public int rateCounter; //Counter
-    [SerializeField] float minRate; //The minimum rate 
+    [SerializeField] float spawnRate, minRate, changeRate; //The spawn Rate, minimum Rate, and how much needs to be detracted
     [SerializeField] int changeRateAt; //The gap that the Counter needs to reach to change the settings
-    [SerializeField] float changeRate; //how much Rate needs to be detracted
+
 
     [Header("Enemy Damage Upgrade")]
     [SerializeField] float addDamage; //How much Damage needs to be Added
     public float totalDam; //the total damage that will be set to the Enemy
+
     float timer;
 
     private void Update()
@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
         //olso makes the enemies a child of it, add 1 to the Counter and reset the timer
         if (timer >= spawnRate)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], transform.position, transform.rotation, transform);
+            Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, transform.rotation, transform);
             rateCounter++;
             timer = 0;
         }

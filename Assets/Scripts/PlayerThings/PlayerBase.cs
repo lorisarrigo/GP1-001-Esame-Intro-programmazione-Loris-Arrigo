@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class PlayerBase : MonoBehaviour, IDamageable
@@ -33,6 +32,6 @@ public class PlayerBase : MonoBehaviour, IDamageable
     //Opens the GameOver Screen
     public void Despawn()
     {
-        MenuManager.Instance.LostGame();
+        UIManager.Instance.LostGame();
     }
 }

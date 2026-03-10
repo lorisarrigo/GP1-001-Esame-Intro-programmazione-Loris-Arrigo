@@ -158,10 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
   status: 1
-  inGameUI: {fileID: 0}
-  gameOverScreen: {fileID: 0}
-  enemyKillCounter: 0
-  killCounter: {fileID: 0}
 --- !u!1001 &3856372289982759573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: startingMoney
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: machinegunPrize

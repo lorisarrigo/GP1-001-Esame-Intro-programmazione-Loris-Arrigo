@@ -7,9 +7,8 @@ public class Turrets : MonoBehaviour
     [SerializeField] Transform bulletSpawner;
     public GameObject bullets;
 
-    public float bulletRate;
+    public float bulletRate, bSpeed;
     private float timer;
-    public float bSpeed;
     public int damagePerHit;
 
     [Header("Powerups")]
@@ -18,13 +17,19 @@ public class Turrets : MonoBehaviour
     private int currentPrize; //the Current PowerUp Prize used to calculate the next prize
     //public int StartingPU_Prize;
 
-    [Header("Area Settings")]
-    public float multiplier; //The PowerUp Multiplier
-    public float area;
+    [Header("powerUp settings")]
+    [SerializeField] float multiplier; //The PowerUp Multiplier
+
+    [Header("MachineGun PU Settings")]
+    [SerializeField] float minRate;
+
+    [Header("Area PU Settings")]
+    public float totMultilier; 
+
 
     private void Start()
     {
-        PowerUpCounter(); 
+        PrizeUpdate(); 
     }
 
     private void Update()
@@ -45,7 +50,7 @@ public class Turrets : MonoBehaviour
     }
 
     //Update the prizes of the PowerUps
-    public void PowerUpCounter()
+    private void PrizeUpdate()
     {
         if (this.CompareTag("Normal"))
         { 
@@ -64,19 +69,38 @@ public class Turrets : MonoBehaviour
         }
     }
 
+    private void PowerUP()
+    {
+        if (this.CompareTag("Normal"))
+        {
+            Debug.Log("danno non potenziato: " + damagePerHit);
+            damagePerHit *= 2;
+            Debug.Log("torretta normale potenziata, danno:" + damagePerHit);
+        }
+        else if (this.CompareTag("MG"))
+        {
+            Debug.Log("Rate non potenziato: " + bulletRate);
+            bulletRate -= multiplier;
+            Debug.Log("Machine Gun potenziata, rate: " + bulletRate);
+        }
+        else if (this.CompareTag("Area"))
+        {
+            Debug.Log("Area non potenziato: " + totMultilier);
+            totMultilier *= multiplier;
+            Debug.Log("torretta area potenziata, Area: " + totMultilier);
+        }
+    }
+
     //When the Turret is Clicked, if there are enough money, decreases the money counter by the prize, doubles it & Update the TMP
     public void Multiply_PU()
     {
-        if(UIManager.Instance.money >= currentPrize)
+        if(UIManager.Instance.money >= currentPrize && bulletRate > minRate)
         {
             UIManager.Instance.money -= currentPrize;
             UIManager.Instance.UpdateCounter();
             currentPrize *= 2;
             powerUpCounter.text = currentPrize.ToString();
-        }
-        else
-        {
-            Debug.Log("sei povero skill issue");
+            PowerUP();
         }
     }
 }

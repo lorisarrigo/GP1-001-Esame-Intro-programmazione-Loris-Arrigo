@@ -83,13 +83,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Turrets
   bulletSpawner: {fileID: 612740672984636187}
   bullets: {fileID: 8570799551199790339, guid: b258ef4507f44d540ab850f2a566a759, type: 3}
-  bulletRate: 2.5
+  bulletRate: 5
   bSpeed: 100
   damagePerHit: 3
   PowerUpCanva: {fileID: 8033820574604735087}
   powerUpCounter: {fileID: 350831088052868099}
   multiplier: 0
-  area: 0
+  minRate: 0
 --- !u!1 &1001202953163590032
 GameObject:
   m_ObjectHideFlags: 0

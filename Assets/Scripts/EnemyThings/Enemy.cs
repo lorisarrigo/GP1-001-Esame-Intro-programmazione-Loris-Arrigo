@@ -19,17 +19,20 @@ public class Enemy : MonoBehaviour, IDamageable
     Rigidbody rb;
     EnemySpawner enemSpawn;
     GameObject colobj;
-    private void Start()
+    
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        enemSpawn = GetComponent<EnemySpawner>();
-        currentHealth = maxHealth;
+        enemSpawn = GetComponentInParent<EnemySpawner>();
     }
-
     //Whene spawned add the total Damage to the base Damage
     private void OnEnable()
     {
         damagePerHit += enemSpawn.totalDam;
+    }
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        currentHealth = maxHealth;
     }
 
     private void FixedUpdate()
@@ -85,7 +88,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Despawn()
     {
         OnEnemyKilled?.Invoke(enemyMoney);
-        MenuManager.Instance.enemyKillCounter++;
+        UIManager.Instance.enemyKillCounter++;
         Destroy(gameObject);
     }    
 }
