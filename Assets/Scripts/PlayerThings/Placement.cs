@@ -1,37 +1,32 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Placement : MonoBehaviour
+public class Placement : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] LayerMask slots;
+    //class used to manage the placement of the Turrets in game
 
-    Ray ray; 
-    RaycastHit hit;
-    [SerializeFiled] Mesh line;
-    private void Awake()
+    [SerializeField] bool isPlaced = false; //bool for checking if the Slot is Empty
+    
+    /*When the Mouse sends the input to the collider:
+     * checks if it's in the BuildMode & the Slot is Empty;
+     * if it's true, spawn the turret selected in the slot clicked;
+     * change the color of the Slot;
+     * subtract the Money based on the price & update the Money Counter;
+     * Adds the slot to the counter in UIManager.cs;
+     * and flag the Slot so it can't be selected again.
+     * exit the Build mode
+    */
+    public void OnPointerClick(PointerEventData eventData)
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    }
-    private void Update()
-    {
-        Place();
-    }
-    private void Place()
-    {
-        if (Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, Mathf.Infinity, slots))
+        if (UIManager.Instance.buildMode && isPlaced == false)
         {
-            Vector3 PlacePos = new(          
-                hit.point.x,
-                hit.point.y + 0.1f,
-                hit.point.z
-                );
-            Instantiate(UIManager.Instance.selectedTur, PlacePos, Quaternion.identity, hit.transform);
+            Instantiate(UIManager.Instance.selectedTur, transform.position, transform.rotation, transform);
+            transform.GetComponent<Renderer>().material.color = Color.blue;
+            UIManager.Instance.money -= UIManager.Instance.selectedPrice;
+            UIManager.Instance.UpdateCounter();
+            isPlaced = true;
+            UIManager.Instance.usedSlots++;
         }
-    }
-
-    private void OnDrawGizmos()
-    { 
-        Physics.Raycast(ray, out hit, Mathf.Infinity, slots);
-        Gizmos.color = Color.blue;
-        //Gizmos.DrawWireMesh();
+        UIManager.Instance.buildMode = false;
     }
 }

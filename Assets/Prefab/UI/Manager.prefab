@@ -30,10 +30,55 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1663690404723074202}
-  - {fileID: 2221501455209270389}
+  - {fileID: 7289233401356976391}
   - {fileID: 3742514753335204939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &777288675232007330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7289233401356976391}
+  - component: {fileID: 6168962249597634110}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7289233401356976391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777288675232007330}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6535897, y: -0.38728, z: -0.013059974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3589451313923178802}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6168962249597634110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777288675232007330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cfe4086e60dc14797dd5986ef833de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  status: 0
 --- !u!1 &7416620211771726894
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,51 +158,6 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
---- !u!1 &8135164105177855646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2221501455209270389}
-  - component: {fileID: 7943331814694711276}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2221501455209270389
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135164105177855646}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6535897, y: -0.38728, z: -0.013059974}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3589451313923178802}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7943331814694711276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135164105177855646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9786251c19887bf49ac219c9f6c71528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  status: 1
 --- !u!1001 &3856372289982759573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,21 +207,53 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: areaPrice
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: areaPrize
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: areaPrefab
+      value: 
+      objectReference: {fileID: 2645947884282150646, guid: 21d87aa5192ab2d44baa9c73532a2a98, type: 3}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: normalPrice
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: normalPrize
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: selectedTur
+      value: 
+      objectReference: {fileID: 4638097797321609702, guid: 5cdc839c9e313ca48af82c4896857245, type: 3}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: normalPrefab
+      value: 
+      objectReference: {fileID: 715096658034983949, guid: 4f218a792f98f3545988717a3a56f0ae, type: 3}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: startingMoney
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: availableSlots
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: machinegunPrice
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: machinegunPrize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 804876886117739409, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
+      propertyPath: machineGunPrefab
+      value: 
+      objectReference: {fileID: 1311861649612875901, guid: 3b578f07716b32a4591d13b42fc24d7b, type: 3}
     - target: {fileID: 2476211536214218704, guid: 232b12e3aeadcf74a8d171d4701a89ef, type: 3}
       propertyPath: m_Name
       value: UI Manager

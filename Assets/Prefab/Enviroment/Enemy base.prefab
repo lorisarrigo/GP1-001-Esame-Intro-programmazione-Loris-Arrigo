@@ -47,13 +47,13 @@ MonoBehaviour:
   Enemies:
   - {fileID: 7527388485814227322, guid: fa7b1a3c8737d9648b6c58b9daa679c4, type: 3}
   - {fileID: 7527388485814227322, guid: 888cabf4d07c4ec45babb6bb90a34867, type: 3}
-  rateCounter: 0
+  spawnCounter: 0
   spawnRate: 7
   minRate: 3
-  changeRate: 0.5
-  changeRateAt: 10
-  addDamage: 0.5
-  totalDam: 0
+  subtract: 0.5
+  changeAt: 10
+  addDmg: 0.5
+  totalDmg: 0
 --- !u!1 &4664317259698822248
 GameObject:
   m_ObjectHideFlags: 0

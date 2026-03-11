@@ -1,10 +1,11 @@
-using UnityEngine;
-
-public class PlayerBase : MonoBehaviour, IDamageable
+public class PlayerBase : HealthManager
 {
-    [Header("Player Health")]
-    public int maxHealth;
-    public float currentHealth;
+    //The class used to manage the health of the Player
+
+    /*Singleton used in:
+     * Enemy.cs: to check if it can despawn;
+     * UIManager to Update the Player HelthBar.
+    */
 
     public static PlayerBase Instance;
     private void Awake()
@@ -17,20 +18,14 @@ public class PlayerBase : MonoBehaviour, IDamageable
         Instance = this;
     }
 
-    //set the health of the Enemy to the Max
+    //set the health of the Player to the Max
     private void Start()
     {
-        currentHealth = maxHealth;
-    }
-
-    //takes the damage comunicated by the Interface
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
+        currentHP = maxHP;
     }
 
     //Opens the GameOver Screen
-    public void Despawn()
+    public override void Despawn()
     {
         UIManager.Instance.LostGame();
     }

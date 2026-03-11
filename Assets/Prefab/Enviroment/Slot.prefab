@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3051879412195760002}
   - component: {fileID: 2776771775615114167}
   - component: {fileID: 3783337007867425260}
-  - component: {fileID: 2902629896222556545}
-  - component: {fileID: 1214637530892882159}
+  - component: {fileID: 839139931951468698}
+  - component: {fileID: 8195940318993484508}
   m_Layer: 9
   m_Name: Slot
   m_TagString: Untagged
@@ -92,8 +92,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2902629896222556545
-BoxCollider:
+--- !u!64 &839139931951468698
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,10 +110,11 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1214637530892882159
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8195940318993484508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +123,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 979824485426522772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb14fde3712995c439f959fad38820e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 476c3f688129acf49b9a8095ba7e4f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Placement
-  slots:
-    serializedVersion: 2
-    m_Bits: 512

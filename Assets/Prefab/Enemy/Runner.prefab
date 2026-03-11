@@ -554,11 +554,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4509cc53eeaf7c4da6f2d302a5f6f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 10
-  currentHealth: 0
+  currentHP: 0
+  maxHP: 10
   speed: 35
-  damagePerHit: 7
-  enemyMoney: 5
+  dmg: 7
+  Money: 5
 --- !u!1 &9027354029904436538
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 36630971592499448}
   - component: {fileID: 1148668127977645809}
   m_Layer: 0
-  m_Name: Wall Maria
+  m_Name: PlayerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,5 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17204c5a69920414ca648722c3e33974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDespawner
-  maxHealth: 100
-  currentHealth: 0
+  currentHP: 0
+  maxHP: 100

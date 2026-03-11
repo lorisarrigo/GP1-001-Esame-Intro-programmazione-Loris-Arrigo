@@ -3,33 +3,39 @@ using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
+    //class used to manage the Turrets used by the Player.
+
+    //Geys the Stats to assign to the bullets
     [Header("Bullet setting & Stats")]
     [SerializeField] Transform bulletSpawner;
-    public GameObject bullets;
+    public GameObject bullet;
 
-    public float bulletRate, bSpeed;
+    public float bRate, bSpeed;
     private float timer;
-    public int damagePerHit;
+    public float dmgPerHit;
 
     [Header("Powerups")]
-    [SerializeField] GameObject PowerUpCanva; //The UI used for the prize of the PowerUp
     [SerializeField] TMP_Text powerUpCounter; //the TMP for the prize
-    private int currentPrize; //the Current PowerUp Prize used to calculate the next prize
-    //public int StartingPU_Prize;
+    private int currentPrice; //the Current PowerUp Prize used to calculate the next prize
 
+    //The Multiplier used in the Rate & Area PowerUps
     [Header("powerUp settings")]
-    [SerializeField] float multiplier; //The PowerUp Multiplier
+    [SerializeField] float multiplier; 
 
     [Header("MachineGun PU Settings")]
     [SerializeField] float minRate;
 
     [Header("Area PU Settings")]
-    public float totMultilier; 
+    public float totMultilier = 1; 
 
-
+    //sets the Scale of the turrets so that they will spawn with this scale
     private void Start()
     {
-        PrizeUpdate(); 
+        PrizeUpdate();
+        transform.localScale = new Vector3(
+            1f / transform.parent.transform.localScale.x,
+            1f / transform.parent.transform.localScale.y,
+            1f / transform.parent.transform.localScale.z);
     }
 
     private void Update()
@@ -37,69 +43,68 @@ public class Turrets : MonoBehaviour
         //Increase the Timer
         timer += Time.deltaTime;
 
-        //When the timer reaches the Rate, Spawn the Bullet in the Spawner position, rotated in X of 90° and make them a child of the Spawner;
+        //When it reaches the Rate, Spawn the Bullet in the Spawner position,
+        //rotated in X of 90° and make them a child of the Spawner;
         //then reset the Timer
-        if(timer >= bulletRate)
+        if(timer >= bRate)
         {
-            Instantiate(bullets, bulletSpawner.position, Quaternion.Euler(90, 0, 0), bulletSpawner.transform);
+            Instantiate(bullet, bulletSpawner.position, Quaternion.Euler(90, 0, 0), bulletSpawner.transform);
             timer = 0;
         }
-
-        //manteins the powerUp canva in the same rotation even if yoiu rotate the Turret
-        PowerUpCanva.transform.rotation = Quaternion.Euler(90,0,0);  
     }
 
-    //Update the prizes of the PowerUps
+    //Update the prizes of the PowerUps based on their tags
+    //(recalled at the start and Every time a PowerUp get purchased)
     private void PrizeUpdate()
     {
         if (this.CompareTag("Normal"))
         { 
-            powerUpCounter.text = UIManager.Instance.normalPrize.ToString();
-            currentPrize = UIManager.Instance.normalPrize;
+            powerUpCounter.text = UIManager.Instance.normalPrice.ToString();
+            currentPrice = UIManager.Instance.normalPrice;
         }
         else if (this.CompareTag("MG"))
         { 
-            powerUpCounter.text = UIManager.Instance.machinegunPrize.ToString();
-            currentPrize = UIManager.Instance.machinegunPrize;
+            powerUpCounter.text = UIManager.Instance.machinegunPrice.ToString();
+            currentPrice = UIManager.Instance.machinegunPrice;
         }
         else if (this.CompareTag("Area"))
         { 
-            powerUpCounter.text = UIManager.Instance.areaPrize.ToString();
-            currentPrize = UIManager.Instance.areaPrize;
+            powerUpCounter.text = UIManager.Instance.areaPrice.ToString();
+            currentPrice = UIManager.Instance.areaPrice;
         }
     }
 
+    /*PowerUp function:
+     * for the normal Turret, Doubles the damage;
+     * for the MachineGun, subtract a custom rate to the Rate of the Tower;
+     * for the Area, multiply the area so that it can calculate how much big needs to be.*/
     private void PowerUP()
     {
         if (this.CompareTag("Normal"))
         {
-            Debug.Log("danno non potenziato: " + damagePerHit);
-            damagePerHit *= 2;
-            Debug.Log("torretta normale potenziata, danno:" + damagePerHit);
+            dmgPerHit *= multiplier;
         }
         else if (this.CompareTag("MG"))
         {
-            Debug.Log("Rate non potenziato: " + bulletRate);
-            bulletRate -= multiplier;
-            Debug.Log("Machine Gun potenziata, rate: " + bulletRate);
+            bRate -= multiplier;
         }
         else if (this.CompareTag("Area"))
         {
-            Debug.Log("Area non potenziato: " + totMultilier);
             totMultilier *= multiplier;
-            Debug.Log("torretta area potenziata, Area: " + totMultilier);
         }
     }
 
-    //When the Turret is Clicked, if there are enough money, decreases the money counter by the prize, doubles it & Update the TMP
-    public void Multiply_PU()
+    /*When the Turret is Clicked, if there are enough money, 
+     * decreases the money counter by the price, doubles the price & Update the TMP,
+     * and activate the PowerUp*/
+    public void PowerUp()
     {
-        if(UIManager.Instance.money >= currentPrize && bulletRate > minRate)
+        if(UIManager.Instance.money >= currentPrice && bRate > minRate)
         {
-            UIManager.Instance.money -= currentPrize;
+            UIManager.Instance.money -= currentPrice;
             UIManager.Instance.UpdateCounter();
-            currentPrize *= 2;
-            powerUpCounter.text = currentPrize.ToString();
+            currentPrice *= 2;
+            powerUpCounter.text = currentPrice.ToString();
             PowerUP();
         }
     }
