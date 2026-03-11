@@ -1,0 +1,3 @@
+Le spiegazioni di come funzionano le cose sono nei vari script;
+L'unica cosa che manca effettivamente è l'area visibile che non si espande all'Upgrade;
+L'aggiunta a piacere principale è una UI che mostra le info delle torrette e che si disattiva quando si preme il Left Mouse Button;
